@@ -30,7 +30,7 @@ jobs:
   
   cd_part:
     runs-on: self-hosted
-    needs:[build]
+    needs : [build]
     steps:
       - uses: actions/setup-python@v3
       - name: "Run app"
