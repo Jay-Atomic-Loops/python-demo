@@ -27,6 +27,12 @@ jobs:
         pip install flake8 pytest
         pip3 install flask gunicorn
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name : "Run server"
-      run: |
-        gunicorn app:app --bind 0.0.0.0:5000
+  
+  cd_part:
+    runs-on: self-hosted
+    needs:[build]
+    steps:
+      - uses: actions/setup-python@v3
+      - name: "Run app"
+        run : |
+        gunicorn app:app --bind 0.0.0.0:5000   
