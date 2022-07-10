@@ -35,7 +35,8 @@ jobs:
       - uses: actions/setup-python@v3
       - name : Run app
         run: |
-        python app.py
+          gunicorn app:app --bind 0.0.0.0:5000
+
 
       # - name: Run app
       #   run: |
