@@ -33,6 +33,6 @@ jobs:
     needs : [build]
     steps:
       - uses: actions/setup-python@v3
-      - name: "Run app"
+      - name: Run app
         run : |
         gunicorn app:app --bind 0.0.0.0:5000   
